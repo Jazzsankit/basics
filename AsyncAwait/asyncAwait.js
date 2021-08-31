@@ -18,11 +18,12 @@ let tab;
     await page.type("#input-1", "tifet30346@gmajs.net");
     await page.type("#input-2", "12345678");    
     await Promise.all([ page.waitForNavigation({waitUntil:"networkidle0"})   , page.click(".ui-btn.ui-btn-large.ui-btn-primary.auth-button") ]);
-    await page.waitForSelector('a[data-analytics="NavBarProfileDropDown"]' , {visible:true}); 
-    await page.click('a[data-analytics="NavBarProfileDropDown"]');
-    await Promise.all([ page.waitForNavigation({waitUntil:"networkidle0"})   , page.click('a[data-analytics="NavBarProfileDropDownAdministration"]')]);
-    await page.waitForSelector('.nav-tabs.nav.admin-tabbed-nav li' , {visible:true});
-    let bothLis = await page.$$(".nav-tabs.nav.admin-tabbed-nav li");
+    await page.waitForSelector('.dropdown.profile-menu.theme-m-content' , {visible:true}); 
+    page.waitForTimeout(1000);
+    await page.click('.dropdown.profile-menu.theme-m-content');
+    await Promise.all([ page.waitForNavigation({waitUntil:"networkidle0"})   , page.click('.dropdown.profile-menu.theme-m-content')]);
+    await page.waitForSelector('a[data-analytics="NavBarProfileDropDownAdministration"]' , {visible:true});
+    let bothLis = await page.$$("a[data-analytics='NavBarProfileDropDownAdministration']");
     let manageChallenge = bothLis[bothLis.length-1];
     // <li>  </li>   
     // manage challenge page
@@ -79,3 +80,4 @@ async function createChallenge(challenge){
         return error;
     }
 }
+//.profile-nav-item-link
