@@ -2,33 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <div class="menu">Menu</div>
 
-    <div class="menu-option">Menu-Option</div>
-
-    <div class="formula">
-        <input type="text" name="" id="address" disabled>
-        <input type="text" name="" id="formula">
+    <div class="menu">
+        <div class="file active-menu">File</div>
+        <div class="home">Home</div>
     </div>
 
-    <div class="cells">
-        <% for(let i=0 ; i<100 ; i++){%>
-            <div class="row">
-                <%for(let j=0 ; j<26 ; j++) {%>
-                    <div class="cell" contenteditable="true" rid = <%=i%>  cid = "<%= j%>"></div>
-                <%}%>
+    <div class="menu-options">
+        <div class="file-menu-options active">
+            <div class="new">New</div>
+            <div class="open">Open</div>
+            <div class="save">Save</div>
+        </div>
+        <div class="home-menu-options">
+            <div class="one">
+                <select name="" id="select-font">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select>
+                <div class="BIU">
+                    <Button class="bold">B</Button>
+                    <Button class="italic">I</Button>
+                    <Button class="un">U</Button>
+                </div>
             </div>
-        <%}%>
+
+            <div class="two">
+                <select name="" id="font-size">
+                    <option value="12" class="12">12</option>
+                    <option value="" class="14">14</option>
+                    <option value="" class="16">16</option>
+                </select>
+                <div class="font-color">
+                    <input type="color">
+                    <input type="color">
+                </div>
+            </div>
+
+            <div class="three">
+                <Button>L</Button>
+                <Button>C</Button>
+                <Button>R</Button>
+            </div>
+        </div>
     </div>
 
-    <div class="sheet">Sheet</div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./script.js">  </script>
+    <div class="formula-input">
+        <input type="text" id="address" disabled>
+        <input type="text" id="formula">
+    </div>
+
+    <div class="content">
+        <!-- top left cell -->
+        <div class="top-left-cell"></div>
+        <!-- top row -->
+        <div class="top-row">
+            <%for(let j=0 ; j<26 ; j++) {%>
+                <div class="top-row-cell" cellId = "<%= j%>"><%= String.fromCharCode(65+j)%></div>
+            <%}%>
+        </div>
+        <!-- left column -->
+        <div class="left-col">
+            <%for(let j=0 ; j<100 ; j++) {%>
+                <div class="left-col-cell" cellId = "<%= j%>"><%= j+1%></div>
+            <%}%>
+        </div>
+        <div class="cells">
+            <% for(let i=0 ; i<100 ; i++){%>
+                <div class="row">
+                    <%for(let j=0 ; j<26 ; j++) {%>
+                        <div class="cell" contenteditable="true" rid = <%=i%>  cid = "<%= j%>"></div>
+                    <%}%>
+                </div>
+            <%}%>
+        </div>
+    </div>
+
+    
+    <div class="sheets">Sheets</div>
+
+
+    <script src="./script.js"></script>
 </body>
 </html>

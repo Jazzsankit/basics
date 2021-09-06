@@ -1,22 +1,29 @@
-const electron = require('electron');
+const electron = require("electron");
 const ejse = require('ejs-electron');
+
+
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
-function createWindow() {
+
+function createWindow () {
     const win = new BrowserWindow({
-        width: 800, height: 600,
-        webPreferences: {
-            nodeIntegration: true,
-        }
+      width: 800,
+      height: 600,
+      webPreferences: {
+        enableRemoteModule: true,
+        nodeIntegration: true, // desktop application usme node enabled hojaega
+        contextIsolation: false,
+        
+      }
     })
-
-    win.nodeRequire = require;
-    win.loadFile('index.ejs').then(function () {
+    win.loadFile('index.ejs').then(function(){
         win.maximize();
-        win.webContents.openDevTools();
-    })
-}
+        win.webContents.openDevTools() // you will get dev tools opened by default 
+    });
+  }
 
-app.whenReady().then(createWindow);
+
+
+app.whenReady().then(createWindow)
