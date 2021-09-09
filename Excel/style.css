@@ -1,81 +1,75 @@
 *{
     box-sizing: border-box;
-}
-
-
-html,body{
-    padding:0px;
-    margin:0px;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
 
 .menu{
-    border: 1px solid;
-    height: 40px;
+    /* border: 1px solid; */
+    height: 35px;
     display: flex;
+    border-bottom: 1px solid lightgray;
     align-items: center;
 }
 
 .menu div{
-    margin-left:10px;
-}
-
-
-.menu-options{
-    border: 1px solid;
-    height: 60px;
+    min-width: 60px;
+    cursor: pointer;
+    height: 80%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.menu-options div{
-    margin-left: 10px;
-}
+.file{
 
+}
 
 .file-menu-options{
-    display:none;
+    display: flex;
 }
 
-.home-menu-options{
-    display:none;
+.file-menu-options div{
+    min-width: 60px;
+    text-align: center;
+    cursor: pointer;
 }
 
-.active{
-    display:flex;
+.home{
+
 }
 
-.active-menu{
-    background: lightgreen;
-    color: white;
-    border-radius: 9px;
-    padding: 5px;
-}
-
-.formula-input{
-    border: 1px solid;
-    height: 40px;
+.menu-options{
+    /* border: 1px solid pink; */
+    height: 50px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid lightgray;
 }
 
-.cells{
-    position: absolute;
-    top: 25px;
-    left: 30px;
+.formula{
+    border: 1px solid;
+    height: 35px;
 }
 
 .content{
-    height: calc(100vh - 170px);
-    /* background: lightgreen; */
+    height: calc(100vh - 155px);
     overflow: auto;
     position: relative;
 }
 
+.cells{
+    position: absolute;
+    left: 30px;
+    top: 25px;
+}
+
 .top-left-cell{
     background: lightgray;
-    height: 25px;
     width: 30px;
+    height: 25px;
     position: absolute;
     z-index: 3;
 }
@@ -83,22 +77,21 @@ html,body{
 .top-row{
     display: flex;
     position: absolute;
-    top: 0px;
     left: 30px;
-    background: lightgreen;
+    top: 0px;
     z-index: 2;
 }
 
+
 .top-row-cell{
     border: 1px solid;
-    min-height: 25px;
     min-width: 70px;
+    min-height: 25px;
     text-align: center;
+    background: lightgreen;
 }
 
 .left-col{
-    background: lightgreen;
-    width: 30px;
     position: absolute;
     top: 25px;
     z-index: 2;
@@ -106,55 +99,104 @@ html,body{
 
 .left-col-cell{
     height: 25px;
+    border: 1px solid;
     width: 30px;
-    border: 1px solid;
+    background: lightgreen;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.sheets{
-    border: 1px solid;
-    height: 30px;
 }
 
 .row{
     display: flex;
 }
-
 .cell{
     border: 1px solid;
-    min-height: 25px;
     min-width: 70px;
     max-width: 70px;
+    min-height: 25px;
 }
 
-.one{
+.sheets{
+    height: 35px;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
-    flex-direction: column;
+}
+
+.sheets-list{
+    display: flex;
     height: 100%;
 }
-
-.two{
+.sheet{
+    /* margin-left: 10px; */
+    cursor: pointer;
+    min-width: 70px;
+    border-right: 1px solid lightgray;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.sheet-add{
+    margin-left: 10px;
+}
+.fas{
+    color: lightgreen;
+    font-size: 25px;
+}
+.active{
+    background: lightgreen;
+    color: white;
+    border-radius: 25px;
+}
+.active-sheet{
+    background: lightgreen;
+    color: white;
+}
+.home-menu-options{
+    display: flex;
+    /* border-bottom: 1px solid lightgray; */
+    /* background: aqua; */
+    width: 40%;
+    justify-content: space-around;
+    height: 100%;
+}
+.home-menu{
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.one select{
+    width: 100%;
+}
+.font-styles{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.font-styles button{
+    width: 35px;
+}
+
+.two select{
+    width: 82%;
+}
+.font-color{
+
+}
+.font-color input{
 
 }
 
 .three{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+}
+.font-alignment{
+
+}
+.font-alignment button{
+    width: 33px;
 }
 
-.BIU{
-    margin: 2px;
-}
-
-.font-color {
-    margin: 2px;
+.hide{
+    display: none;
 }
